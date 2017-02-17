@@ -16,7 +16,7 @@ WebAssembly is a binary format for executing code on the web.
 
 ## Getting started
 
-...
+Before we get started compiling our first program to WebAssembly we need to compile the LLVM from source. [This guide](http://webassembly.org/getting-started/developers-guide/) will run you through the whole setup process.
 
 ## Presentations
 
