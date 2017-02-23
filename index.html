@@ -1,98 +1,124 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-        <title>Web Assembly</title>
+  <title>Web Assembly</title>
 
-        <link rel="stylesheet" href="./css/reveal.min.css">
-        <link rel="stylesheet" href="./css/bekk.css">
-        <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/reveal.min.css">
+  <link rel="stylesheet" href="./css/bekk.css">
+  <link rel="stylesheet" href="./css/style.css">
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <div class="reveal">
+  <div class="reveal">
 
-            <div class="slides">
+    <div class="slides">
 
-                <section>
-                  <h2>Web Assembly</h2>
-                  <br />
-                  <br />
-                  <br />
+      <section>
+        <h2>WebAssembly</h2>
+        <br />
+        <br />
+        <br />
 
-                  <p>Tri Nguyen | <a href="http://twitter.com/itmn">@itmn</a></p>
-                  <p>Trond Klakken | <a href="http://twitter.com/trondkla">@trondkla</a></p>
-                  <p><a href="http://open.bekk.no">open.bekk.no</a></p>
-                </section>
+        <p>Tri Nguyen | <a href="http://twitter.com/itmn">@itmn</a></p>
+        <p>Trond Klakken | <a href="http://twitter.com/trondkla">@trondkla</a></p>
+        <p><a href="http://open.bekk.no">open.bekk.no</a></p>
+      </section>
 
-                <section id="intro">
-                  <section>
-                    <h2>Slide 1</h2>
-
-
-                    <aside class="notes">
-                      <ul>
-                          <li>Notat</li>
-                      </ul>
-                    </aside>
-                  </section>
+      <section id="intro">
+        <section>
+          <h2>What is it?</h2>
 
 
-                  <section>
-                    <img class="no-border background padding htmlPic" src="images/fullscreen.jpg" />
-                    <p class="kilde">Kildehenvisning</p>
-                    <aside class="notes">
-                      <ul>
-                        <li>MNotat 2</li>
-                      </ul>
-                    </aside>
-                  </section>
+          <aside class="notes">
+            <ul>
+              <li>Notat</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <p>... a portable, size- and load-time-efficient binary format for executing code on the web</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>What is it good for?</h2>
+
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>How does it work?</h2>
+        </section>
 
 
-                  <section>
-                    <h2>Side 2</h2>
+        <section>
+          <h2>Emscripten</h2>
 
-                    <p>Første vises denne</p>
-                    <p class="fragment">Så denne</p>
+          <p>LLVM-to-JavaScript compiler</p>
+          <p>It works as a back-end to the LLVM compiler</p>
+        </section>
+      </section>
 
-                    <aside class="notes">
-                      <ul>
-                        <li>Ffefaefea</li>
-                      </ul>
-                    </aside>
-                  </section>
+      <section>
+        <section>
+          <h2>Side 2</h2>
 
-                </section>
+          <p>Første vises denne</p>
+          <p class="fragment">Så denne</p>
 
-                <section id="outro">
-                  <h2>Takk for oss!</h2>
-                </section>
-            </div>
+          <aside class="notes">
+            <ul>
+              <li>Ffefaefea</li>
+            </ul>
+          </aside>
+        </section>
 
-        </div>
+        <section>
+          <img class="no-border background padding htmlPic" src="images/fullscreen.jpg" />
+          <p class="kilde">Kildehenvisning</p>
+          <aside class="notes">
+            <ul>
+              <li>MNotat 2</li>
+            </ul>
+          </aside>
+        </section>
+      </section>
 
-        <script src="./lib/js/head.min.js"></script>
-        <script src="./js/reveal.min.js"></script>
-        <script type="text/javascript" src="./vendor/prefixfree.min.js"></script>
 
-        <script>
 
-            Reveal.initialize({
-                controls: true,
-                progress: true,
-                history: true,
-                center: true,
-                transition: 'fade', //Default - None - Fade - Slide - Concave - Zoom
-                dependencies: [
-                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; }},
-                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                ]
-            });
+      <section id="outro">
+        <h2>Takk for oss!</h2>
+      </section>
+    </div>
 
-        </script>
-    </body>
+  </div>
+
+  <script src="./lib/js/head.min.js"></script>
+  <script src="./js/reveal.min.js"></script>
+  <script type="text/javascript" src="./vendor/prefixfree.min.js"></script>
+
+  <script>
+
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'fade', //Default - None - Fade - Slide - Concave - Zoom
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; }},
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+  });
+
+  </script>
+</body>
 </html>
