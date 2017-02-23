@@ -67,8 +67,114 @@
         </section>
       </section>
 
-      <section>
-        <section>
+      <section id="ast">
+          <section>
+              <h2>AST</h2>
+              <h3>Abstract syntax tree</h3>
+          </section>
+          <section>
+              <div class="two-items">
+
+                  <div class="item">
+                      <img style="background: white;" src="images/Abstract_syntax_tree_for_Euclidean_algorithm.svg" />
+                  </div>
+
+                  <div class="item">
+                      <p>Euclidean algorithm to find the greatest common divisor of a and b:</p>
+<pre style="font-size: 1em">
+  <b>while</b> b ≠ 0
+      <b>if</b> a &gt; b
+         a := a − b
+      <b>else</b>
+         b := b − a
+  <b>return</b> a
+</pre>
+                      <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree#/media/File:Abstract_syntax_tree_for_Euclidean_algorithm.svg">Wikipedia</a>
+
+                  </div>
+              </div>
+          </section>
+
+          <section>
+              <h3>TypeScript:</h3>
+<pre style="font-size: 1em;">
+function addTwo(a: number, b: number): number {
+    return a + b;
+}
+</pre>
+                <h3>.wast</h3>
+<pre style="font-size: 1em;">
+    (module
+      (func $addTwo (param i32 i32) (result i32)
+        (i32.add
+          (get_local 0)
+          (get_local 1)))
+      (export "addTwo" (func $addTwo)))
+</pre>
+          </section>
+
+          <section>
+              <h3>.wasm, assembly file</h3>
+              <pre id="output">
+0000000: 0061 736d                                 ; WASM_BINARY_MAGIC
+0000004: 0d00 0000                                 ; WASM_BINARY_VERSION
+; section "TYPE" (1)
+0000008: 01                                        ; section code
+0000009: 00                                        ; section size (guess)
+000000a: 01                                        ; num types
+; type 0
+000000b: 60                                        ; func
+000000c: 02                                        ; num params
+000000d: 7f                                        ; i32
+000000e: 7f                                        ; i32
+000000f: 01                                        ; num results
+0000010: 7f                                        ; i32
+0000009: 07                                        ; FIXUP section size
+; section "FUNCTION" (3)
+0000011: 03                                        ; section code
+0000012: 00                                        ; section size (guess)
+0000013: 01                                        ; num functions
+0000014: 00                                        ; function 0 signature index
+0000012: 02                                        ; FIXUP section size
+...                                                 ...
+</pre>
+          </section>
+
+          <section>
+<pre>
+...                                                 ...
+; section "EXPORT" (7)
+0000015: 07                                        ; section code
+0000016: 00                                        ; section size (guess)
+0000017: 01                                        ; num exports
+0000018: 06                                        ; string length
+0000019: 6164 6454 776f                           addTwo  ; export name
+000001f: 00                                        ; export kind
+0000020: 00                                        ; export func index
+0000016: 0a                                        ; FIXUP section size
+; section "CODE" (10)
+0000021: 0a                                        ; section code
+0000022: 00                                        ; section size (guess)
+0000023: 01                                        ; num functions
+; function body 0
+0000024: 00                                        ; func body size (guess)
+0000025: 00                                        ; local decl count
+0000026: 20                                        ; get_local
+0000027: 00                                        ; local index
+0000028: 20                                        ; get_local
+0000029: 01                                        ; local index
+000002a: 6a                                        ; i32.add
+000002b: 0b                                        ; end
+0000024: 07                                        ; FIXUP func body size
+0000022: 09                                        ; FIXUP section size
+        </pre>
+
+        </section>
+
+    </section>
+
+    <section>
+         <section>
             <h3>Single Instruction Single Data</h3>
 
             <img src="images/sisd.png" style="height: 16em;">
@@ -146,6 +252,24 @@
                     <li>4 klokkesykler per tall</li>
                 </ul>
             </aside>
+        </section>
+    </section>
+
+    <section id="simd">
+        <section>
+            <h2>SIMD<h2>
+            <h3>Single Instruction Multiple Data</h3>
+            <div class="two-images">
+                <img src="images/nosimd2.gif" />
+                <img src="images/simd2.gif" />
+            </div>
+            <a href="https://blogs.windows.com/msedgedev/2015/05/21/intel-and-microsoft-partnering-for-an-improved-web-experience/#OoHAi6lQxWyvSMmQ.97">By Microsoft Edge Team</a>
+        </section>
+
+        <section>
+            <img src="images/simd.png" style="height: 16em;">
+
+            <p>*<a href="http://archive.arstechnica.com/cpu/1q00/simd/m-simd-1.html">arstechnica</a></p>
         </section>
 
         <section id="simd-vector-problem">
@@ -243,38 +367,7 @@
                 </ul>
             </aside>
         </section>
-
-
-
-        <section id="simd">
-            <section>
-                <h2>SIMD<h2>
-                <h3>Single Instruction Multiple Data</h3>
-                <div class="two-images">
-                    <img src="images/nosimd2.gif" />
-                    <img src="images/simd2.gif" />
-                </div>
-                <a href="https://blogs.windows.com/msedgedev/2015/05/21/intel-and-microsoft-partnering-for-an-improved-web-experience/#OoHAi6lQxWyvSMmQ.97">By Microsoft Edge Team</a>
-
-
-            </section>
-
-            <section>
-                <img src="images/simd.png" style="height: 16em;">
-
-                <p>*<a href="http://archive.arstechnica.com/cpu/1q00/simd/m-simd-1.html">arstechnica</a></p>
-            </section>
-
-            <section>
-                <p>Single processor vs vector on multicore</p>
-            </section>
-
-            <section>
-                Hvorfor?
-                Bilde / videobehandling i nettlesern.
-            </section>
-
-        </section>
+    </section>
 
       <section id="outro">
         <h2>Takk for oss!</h2>
