@@ -9,9 +9,6 @@
 .reveal ul.no-style {
   list-style: none;
 }
-.reveal img {
-  max-height: 650px;
-}
 .reveal img.no-border {
   border: 0px none;
   outline: none;
@@ -35,4 +32,28 @@
 .reveal code {
   text-align: left;
   padding: 1em;
+}
+
+
+.reveal .two-images,
+.reveal .two-items {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-bottom: 1em;
+}
+
+.reveal .two-images img,
+.reveal .two-items .item {
+    max-width: 50%;
+    margin: auto;
+}
+.reveal table.border {
+    margin: auto;
+    text-align: center;
+}
+.reveal table.border th,
+.reveal table.border td {
+    outline: 1px solid white !important;
+    text-align: center;
+    padding: 0.5em;
 }

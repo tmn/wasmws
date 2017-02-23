@@ -69,30 +69,212 @@
 
       <section>
         <section>
-          <h2>Side 2</h2>
+            <h3>Single Instruction Single Data</h3>
 
-          <p>Første vises denne</p>
-          <p class="fragment">Så denne</p>
+            <img src="images/sisd.png" style="height: 16em;">
 
-          <aside class="notes">
-            <ul>
-              <li>Ffefaefea</li>
-            </ul>
-          </aside>
+            <p>*<a href="http://archive.arstechnica.com/cpu/1q00/simd/m-simd-1.html">arstechnica</a></p>
+
+            <aside class="notes">
+                <ul>
+                    <li>ADD</li>
+                    <li>SUB</li>
+                    <li>DIV</li>
+                    <li>LOAD</li>
+                    <li>STORE</li>
+                </ul>
+            </aside>
         </section>
 
-        <section>
-          <img class="no-border background padding htmlPic" src="images/fullscreen.jpg" />
-          <p class="kilde">Kildehenvisning</p>
-          <aside class="notes">
-            <ul>
-              <li>MNotat 2</li>
-            </ul>
-          </aside>
+        <section id="instruction-set">
+            <h4>SISD</h4>
+            <p>A + B = C</p>
+            <div class="two-items">
+
+                <p class="item">Minne:</p>
+                <table class="border item">
+                    <tr>
+                        <th>M0</th>
+                        <th>M1</th>
+                        <th>M2</th>
+                        <th>M3</th>
+                        <th>..</th>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>B</td>
+                        <td class="fragment" data-fragment-index="4">C</td>
+                        <td>..</td>
+                        <td>..</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="two-items">
+                <p class="item">CPU registre:</p>
+                <table class="border item">
+                    <tr>
+                        <th>R0</th>
+                        <th>R1</th>
+                        <th>R2</th>
+                        <th>R3</th>
+                        <th>..</th>
+                        <th>R16</th>
+                    </tr>
+                    <tr>
+                        <td class="fragment" data-fragment-index="1">A</td>
+                        <td class="fragment" data-fragment-index="2">B</td>
+                        <td class="fragment" data-fragment-index="3">C</td>
+                        <td>..</td>
+                        <td>..</td>
+                        <td>..</td>
+                    </tr>
+                </table>
+            </div>
+            <p>Oppgave: Legg sammen 16 tall med 16 andre</p>
+            <ol>
+                <li class="fragment" data-fragment-index="1">LOAD M0, R0 - Last A inn i R0 fra minne</li>
+                <li class="fragment" data-fragment-index="2">LOAD M1, R1 - Last B inn i R1 fra minne</li>
+                <li class="fragment" data-fragment-index="3">ADD R0, R1 into R2 - Legg sammen R0 + R1 og lagre i R2</li>
+                <li class="fragment" data-fragment-index="4">STORE R2, M2 - Skriv R2 til minne</li>
+            </ol>
+
+            <aside class="notes">
+                <ul>
+                    <li>Blokker i byte</li>
+                    <li>Ingen garanti at de er etter hverandre</li>
+                    <li>4 klokkesykler per tall</li>
+                </ul>
+            </aside>
         </section>
-      </section>
+
+        <section id="simd-vector-problem">
+            <h4>SIMD - Vector</h4>
+
+            <p>Oppgave: Legg sammen 16 tall med 16 andre</p>
+
+            <p>A<sub>1</sub> + B<sub>1</sub> = C<sub>1</sub>, </p>
+            <p>A<sub>2</sub> + B<sub>2</sub> = C<sub>2</sub>, </p>
+            <p> ... ,</p>
+            <p>A<sub>16</sub> + B<sub>16</sub> = C<sub>16</sub></p>
+        </section>
+
+        <section id="simd-vector">
+            <h4>SIMD - Vector</h4>
+
+            <div class="two-items">
+
+                <p class="item">Minne:</p>
+                <table class="border item">
+                    <tr>
+                        <th>M0</th>
+                        <th>M1</th>
+                        <th>..</th>
+                        <th>M8</th>
+                        <th>M9</th>
+                        <th>..</th>
+                        <th>M16</th>
+                        <th>M17</th>
+                        <th>..</th>
+                    </tr>
+                    <tr>
+                        <td>A<sub>1</sub> </td>
+                        <td>A<sub>2</sub> </td>
+                        <td>..</td>
+                        <td>B<sub>1</sub> </td>
+                        <td>B<sub>2</sub> </td>
+                        <td>..</td>
+                        <td class="fragment" data-fragment-index="4">C<sub>1</sub> </td>
+                        <td class="fragment" data-fragment-index="4">C<sub>2</sub> </td>
+                        <td>..</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="two-items">
+                <span class="item">
+                    <p>CPU vector register</p>
+                    <p>(512kb, 16 int, 8 long):</p>
+                </span>
+                <table class="border item">
+                    <tr>
+                        <th>R0</th>
+                        <th>R1</th>
+                        <th>R2</th>
+                        <th>..</th>
+                    </tr>
+                    <tr>
+                        <td class="fragment" data-fragment-index="1">
+                            A<sub>1</sub> ,
+                            A<sub>2</sub> ,
+                            ... ,
+                            A<sub>8</sub> ,
+                        </td>
+                        <td class="fragment" data-fragment-index="2">
+                            B<sub>1</sub> ,
+                            B<sub>2</sub> ,
+                            ... ,
+                            B<sub>8</sub> ,
+                        </td>
+                        <td class="fragment" data-fragment-index="3">
+                            C<sub>1</sub> ,
+                            C<sub>2</sub> ,
+                            ... ,
+                            C<sub>8</sub> ,
+                        </td>
+                        <td>..</td>
+                    </tr>
+                </table>
+            </div>
+            <ol>
+                <li class="fragment" data-fragment-index="1">LOAD_VECTOR M0, R0 - Laster inn 512kb som starter fra minnelokasjon M0</li>
+                <li class="fragment" data-fragment-index="2">LOAD_VECTOR M8, R1 - Laster inn 512kb som starter fra minnelokasjon M1</li>
+                <li class="fragment" data-fragment-index="3">ADD_VECTOR_INT64 R0, R1 into R2 - Legg sammen 8 longs fra R0 + R1 og lagre i R2</li>
+                <li class="fragment" data-fragment-index="4">STORE R2, M2 - Skriv R2 til minnelokasjonen som starter ved M2</li>
+            </ol>
+
+            <aside class="notes">
+                <ul>
+                    <li>Vector: 512 bit</li>
+                    <li>Laster inn [1, 2, 1, 4, 6] = 16 float, int, eller 8 double long samtidig</li>
+                    <li>Ligger lagret etter hverandre i minne</li>
+                    <li>Spesialregister</li>
+                    <li>To klokke sykler</li>
+                </ul>
+            </aside>
+        </section>
 
 
+
+        <section id="simd">
+            <section>
+                <h2>SIMD<h2>
+                <h3>Single Instruction Multiple Data</h3>
+                <div class="two-images">
+                    <img src="images/nosimd2.gif" />
+                    <img src="images/simd2.gif" />
+                </div>
+                <a href="https://blogs.windows.com/msedgedev/2015/05/21/intel-and-microsoft-partnering-for-an-improved-web-experience/#OoHAi6lQxWyvSMmQ.97">By Microsoft Edge Team</a>
+
+
+            </section>
+
+            <section>
+                <img src="images/simd.png" style="height: 16em;">
+
+                <p>*<a href="http://archive.arstechnica.com/cpu/1q00/simd/m-simd-1.html">arstechnica</a></p>
+            </section>
+
+            <section>
+                <p>Single processor vs vector on multicore</p>
+            </section>
+
+            <section>
+                Hvorfor?
+                Bilde / videobehandling i nettlesern.
+            </section>
+
+        </section>
 
       <section id="outro">
         <h2>Takk for oss!</h2>
