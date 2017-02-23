@@ -96,6 +96,230 @@
           </section>
 
           <section>
+              <h2>Stack</h2>
+              <img src="images/stack-data-structure.png" />
+              <p><a href="http://www.studytonight.com/">Kilde</a></p>
+          </section>
+
+          <section>
+              <h2>Stack machine</h2>
+              <div class="two-items">
+
+                  <img class="item" style="background: white" src="images/Binary_tree_-_stack.png" />
+                  <div class="item">
+                      <p>Stack maskin kode:</p>
+    <pre>
+    push x
+    push y
+    push z
+    multiply
+    add
+    push u
+    add
+    </pre>
+                    </div>
+                </div>
+                <p><a href="https://en.wikipedia.org/wiki/Stack_machine#/media/File:Binary_tree_-_stack.png">Dajuric - CC 3.0</a></p>
+          </section>
+<!-- Steg 1 -->
+<section>
+  <h2>Utføre stackmaskin</h2>
+  <div class="two-items">
+      <div class="item">
+          <p>Stack maskin kode:</p>
+<pre>
+- push 3
+push 2
+push 5
+multiply
+add
+push 1
+add
+</pre>
+    </div>
+    <div class="item">
+        <p>Stack:</p>
+        <table class="border">
+            <tr>
+                <td>3</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</section>
+<!-- Steg 2 -->
+<section>
+  <h2>Utføre stackmaskin</h2>
+  <div class="two-items">
+      <div class="item">
+          <p>Stack maskin kode:</p>
+<pre>
+push 3
+- push 2
+push 5
+multiply
+add
+push 1
+add
+</pre>
+    </div>
+    <div class="item">
+        <p>Stack:</p>
+        <table class="border">
+            <tr>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</section>
+<!-- Steg 3 -->
+<section>
+    <h2>Utføre stackmaskin</h2>
+    <div class="two-items">
+        <div class="item">
+            <p>Stack maskin kode:</p>
+<pre>
+push 3
+push 2
+- push 5
+multiply
+add
+push 1
+add
+</pre>
+      </div>
+      <div class="item">
+          <p>Stack:</p>
+          <table class="border">
+              <tr>
+                  <td>5</td>
+              </tr>
+              <tr>
+                  <td>2</td>
+              </tr>
+              <tr>
+                  <td>3</td>
+              </tr>
+          </table>
+      </div>
+  </div>
+</section>
+<!-- Steg 4 -->
+<section>
+<h2>Utføre stackmaskin</h2>
+<div class="two-items">
+  <div class="item">
+      <p>Stack maskin kode:</p>
+<pre>
+push 3
+push 2
+push 5
+- multiply
+add
+push 1
+add
+</pre>
+</div>
+<div class="item">
+    <p>Stack:</p>
+    <table class="border">
+        <tr>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>3</td>
+        </tr>
+    </table>
+</div>
+</div>
+</section>
+<!-- Steg 5 -->
+<section>
+<h2>Utføre stackmaskin</h2>
+<div class="two-items">
+  <div class="item">
+      <p>Stack maskin kode:</p>
+<pre>
+push 3
+push 2
+push 5
+multiply
+- add
+push 1
+add
+</pre>
+</div>
+<div class="item">
+    <p>Stack:</p>
+    <table class="border">
+        <tr>
+            <td>13</td>
+        </tr>
+    </table>
+</div>
+</div>
+</section>
+<!-- Steg 6 -->
+<section>
+<h2>Utføre stackmaskin</h2>
+<div class="two-items">
+  <div class="item">
+      <p>Stack maskin kode:</p>
+<pre>
+push 3
+push 2
+push 5
+multiply
+add
+- push 1
+add
+</pre>
+</div>
+<div class="item">
+    <p>Stack:</p>
+    <table class="border">
+        <tr>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>13</td>
+        </tr>
+    </table>
+</div>
+</div>
+</section>
+<!-- Steg 7 -->
+<section>
+<h2>Utføre stackmaskin</h2>
+<div class="two-items">
+  <div class="item">
+      <p>Stack maskin kode:</p>
+<pre>
+push 3
+push 2
+push 5
+multiply
+add
+push 1
+- add
+</pre>
+</div>
+<div class="item">
+    <p>Stack:</p>
+    <table class="border">
+        <tr>
+            <td>14</td>
+        </tr>
+    </table>
+</div>
+</div>
+</section>
+
+          <section>
               <h3>TypeScript:</h3>
 <pre style="font-size: 1em;">
 function addTwo(a: number, b: number): number {
@@ -364,6 +588,7 @@ function addTwo(a: number, b: number): number {
                     <li>Ligger lagret etter hverandre i minne</li>
                     <li>Spesialregister</li>
                     <li>To klokke sykler</li>
+                    <li>Shared memory vectors lar deg gjøre mye gøy</li>
                 </ul>
             </aside>
         </section>
