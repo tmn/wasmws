@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>UU - HTML5 WAI-ARIA</title>
+
+        <link rel="stylesheet" href="./css/reveal.min.css">
+        <link rel="stylesheet" href="./css/bekk.css">
+        <link rel="stylesheet" href="./css/style.css">
+
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+
+                <section>
+                  <h2>Web Assembly</h2>
+                  <br />
+                  <br />
+                  <br />
+
+                  <p>Tri Nguyen | <a href="http://twitter.com/tmn">@tmn</a></p>
+                  <p>Trond Klakken | <a href="http://twitter.com/trondkla">@trondkla</a></p>
+                  <p><a href="http://open.bekk.no">open.bekk.no</a></p>
+                </section>
+
+                <section id="intro">
+                  <section>
+                    <h2>Slide 1</h2>
+
+
+                    <aside class="notes">
+                      <ul>
+                          <li>Notat</li>
+                      </ul>
+                    </aside>
+                  </section>
+
+
+                  <section>
+                    <img class="no-border background padding htmlPic" src="images/fullscreen.jpg" />
+                    <p class="kilde">Kildehenvisning</p>
+                    <aside class="notes">
+                      <ul>
+                        <li>MNotat 2</li>
+                      </ul>
+                    </aside>
+                  </section>
+
+
+                  <section>
+                    <h2>Side 2</h2>
+
+                    <p>Første vises denne</p>
+                    <p class="fragment">Så denne</p>
+
+                    <aside class="notes">
+                      <ul>
+                        <li>Ffefaefea</li>
+                      </ul>
+                    </aside>
+                  </section>
+
+                </section>
+
+                <section id="outro">
+                  <h2>Takk for oss!</h2>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="./lib/js/head.min.js"></script>
+        <script src="./js/reveal.min.js"></script>
+        <script type="text/javascript" src="./vendor/prefixfree.min.js"></script>
+
+        <script>
+
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                transition: 'fade', //Default - None - Fade - Slide - Concave - Zoom
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; }},
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>

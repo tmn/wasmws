@@ -1,0 +1,38 @@
+.reveal img.logo {
+  border: 0px none;
+  background: none;
+  margin-bottom: 1.5em;
+}
+.reveal .small {
+  font-size: 0.5em;
+}
+.reveal ul.no-style {
+  list-style: none;
+}
+.reveal img {
+  max-height: 650px;
+}
+.reveal img.no-border {
+  border: 0px none;
+  outline: none;
+}
+.reveal img.background {
+  background: white;
+}
+.reveal img.padding {
+  padding: 1em;
+}
+.reveal img.htmlPic {
+  margin: -1em;
+}
+.reveal img.width-60 {
+  width: 60%;
+}
+.reveal .kilde {
+  font-size: 60%;
+  margin-top: 2em;
+}
+.reveal code {
+  text-align: left;
+  padding: 1em;
+}
