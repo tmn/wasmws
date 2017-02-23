@@ -1,0 +1,20 @@
+{
+  "name": "wasmws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "go": "open http://localhost:8000 && python -m SimpleHTTPServer",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmn/wasmws.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tmn/wasmws/issues"
+  },
+  "homepage": "https://github.com/tmn/wasmws#readme"
+}
