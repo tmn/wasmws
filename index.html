@@ -33,7 +33,6 @@
         <section>
           <h2>What is it?</h2>
 
-
           <aside class="notes">
             <ul>
               <li>Notat</li>
@@ -44,26 +43,99 @@
         <section>
           <p>... a portable, size- and load-time-efficient binary format for executing code on the web</p>
         </section>
+
+        <section>
+          <p>A binary format allows many optimizations for code size and decoding speed that would not be possible on a source form</p>
+        </section>
+
+        <section>
+          <p>Designed to integrate well with the existing web platform</p>
+        </section>
+
+        <section>
+          <p>execute in the same semantic universe as JavaScript</p>
+        </section>
+
+        <section>
+          <h3>What about the security?</h3>
+          <br>
+          <p>It depends on the same-origin policy</p>
+          <p>Applications execute independently, and can’t escape the sandbox without going through appropriate APIs</p>
+        </section>
       </section>
 
       <section>
         <section>
           <h2>What is it good for?</h2>
+        </section>
 
+        <section>
+          <p>Greater performance on the web</p>
+        </section>
+
+        <section>
+          <p>Share code and libraries between "Native" and the Web</p>
+        </section>
+
+        <section>
+          <p>No longer need of manually porting projects to JavaScript</p>
+        </section>
+
+        <section>
+          <img src="images/av1.png" />
+          <p><a href="https://medium.com/@mbebenita/av1-bitstream-analyzer-d25f1c27072b#.olp9az8zj">Kilde</a></p>
         </section>
       </section>
 
       <section>
         <section>
-          <h2>How does it work?</h2>
+          <h2>The MVP</h2>
         </section>
 
+        <section>
+          <p><i>A Minimum Viable Product (MVP) for the standard with roughly the same functionality as asm.js</i></p>
+        </section>
+
+        <section>
+          <p>The initial focus for WebAssembly is on C/C++, with a new backend being developed in upstream clang/LLVM</p>
+          <p class="fragment"></p>
+        </section>
+
+        <section>
+          <p>WebAssembly applications can use high-level C/C++ APIs such as the C and C++ standard libraries, OpenGL, SDL, pthreads, and others, just as in normal C/C++ development</p>
+        </section>
+
+        <section>
+          <h2>How does it work?</h2>
+          <p class="fragment">In the MVP, the only way to access WebAssembly on the Web is through an explicit JS API</p>
+          <div class="fragment">
+            <p>In the future WASM modules may be loaded with any other Web APIs that loads ES6 modules via URL</p>
+<code>
+  &lt;script type='module'&gt;
+</code>
+          </div>
+        </section>
 
         <section>
           <h2>Emscripten</h2>
 
           <p>LLVM-to-JavaScript compiler</p>
           <p>It works as a back-end to the LLVM compiler</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>The future</h2>
+          <ul>
+            <li>reference DOM and other Web API objects directly from WebAssembly code</li>
+            <li>call Web APIs directly from WebAssembly without calling through JavaScript</li>
+            <li>shared memory between threads</li>
+          </ul>
+
+          <p>&nbsp;</p>
+
+          <p>See <a href="http://webassembly.org/docs/future-features/">"Future features"</a> for more</p>
         </section>
       </section>
 
