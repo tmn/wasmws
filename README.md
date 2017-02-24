@@ -13,18 +13,20 @@ WebAssembly is a binary format for executing code on the web.
 * Why?
   * Why do we need it?
 * The roadmap
-* Current status
-* The MVP
+  * Current status
+  * The MVP
 * Next step
 
 
 ## What?
 
-WebAssembly is a portable, size- and load-time-efficient binary format for executing code on the web.
+WebAssembly is a portable, size- and load-time-efficient binary format for executing code on the web. Initially it focuses on C/C++ with a new backend being developed in upstream clang/LLVM.
 
 ### What is `emscripten`?
 
-Emscripten is a LLVM-to-JavaScript compiler. It works as a back-end to the LLVM compiler.
+Emscripten is a a LLVM-based project, a LLVM-to-JavaScript compiler. It works as a back-end to the LLVM compiler.
+
+The main tool is the [Emscripten Compiler Frontend](kripken.github.io/emscripten-site/docs/tools_reference/emcc.html#emccdoc) (emcc). It uses Clang to convert C/C++ files to LLVM bitcode, and [Fastcomp](http://kripken.github.io/emscripten-site/docs/building_from_source/LLVM-Backend.html#llvm-backend) to compile the bitcode to asm.js and then to WebAssembly.
 
 
 ## Why?
@@ -36,7 +38,9 @@ Emscripten is a LLVM-to-JavaScript compiler. It works as a back-end to the LLVM 
 
 _"A Minimum Viable Product (MVP) for the standard with roughly the same functionality as asm.js, primarily aimed at C/C++"_
 
+### The Roadmap
 
+...
 
 
 
