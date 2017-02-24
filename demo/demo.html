@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <script>
+  // Loads a WebAssembly dynamic library, returns a promise.
+  // imports is an optional imports object
+  function loadWebAssembly(filename, imports) {
+    // Fetch the file and compile it
+    return fetch(filename)
+    .then(response => response.arrayBuffer())
+    .then(buffer => WebAssembly.compile(buffer))
+    .then(module => {
+      // Create the imports for the module, including the
+      // standard dynamic library imports
+      imports = imports || {};
+      imports.env = imports.env || {};
+      imports.env.memoryBase = imports.env.memoryBase || 0;
+      imports.env.tableBase = imports.env.tableBase || 0;
+
+      if (!imports.env.memory) {
+        imports.env.memory = new WebAssembly.Memory({ initial: 256 });
+      }
+
+      if (!imports.env.table) {
+        imports.env.table = new WebAssembly.Table({ initial: 0, element: 'anyfunc' });
+      }
+
+      // Create the instance.
+      return new WebAssembly.Instance(module, imports);
+    });
+  }
+
+
+  loadWebAssembly('hello.wasm')
+  .then(instance => {
+    var exports = instance.exports;
+
+    var doubler = exports._doubler;
+    var tripler = exports._tripler;
+
+    var num = document.getElementById('num');
+    var header = document.getElementById('header');
+    header.innerHTML = 'WebAssembly ready';
+
+    num.addEventListener('input', function (e) {
+      var res = [];
+
+      res.push(`Calling wasm doubler function with ${e.target.value}: ${doubler(e.target.value)}`);
+      res.push(`Calling wasm doubler function with ${e.target.value}: ${tripler(e.target.value)}`);
+
+      document.getElementById('output').innerHTML = res.join('<br>');
+    });
+  }
+);
+
+</script>
+</head>
+<body>
+  <h1 id="header">(waiting for WebAssembly)</h1>
+
+  <div id="output"></div>
+
+  <input type="text" id="num">
+</body>
+</html>

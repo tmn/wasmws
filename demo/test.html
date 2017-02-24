@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script>
+  function instantiate(bytes, imports) {
+    return WebAssembly.compile(bytes).then(m => new WebAssembly.Instance(m, imports));
+  }
+
+  var importObject = { imports: { i: arg => console.log(arg) } };
+
+  fetch('test.wasm').then(response => response.arrayBuffer())
+  .then(bytes => instantiate(bytes, importObject))
+  .then(instance => instance.exports.e());
+  </script>
+</body>
+</html>
